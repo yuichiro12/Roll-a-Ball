@@ -1,12 +1,12 @@
 ﻿#pragma strict
 
-function Start () {
+var player : GameObject;
+var offset : Vector3;
 
+function Start () {
+	offset = transform.position - player.transform.position;
 }
 
-function Update () {
-	var x : float = Input.GetAxis("Horizontal");
-	var y : float = Input.GetAxis("Jump");
-	var z : float = Input.GetAxis("Vertical");
-	transform.Translate(Vector3(x * 0.15, y, z * 0.15));
+function LateUpdate () {
+	transform.position = player.transform.position + offset;
 }
