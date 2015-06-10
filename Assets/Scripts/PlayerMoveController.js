@@ -24,3 +24,9 @@ function OnCollisionEnter (collision: Collision) {
 		jump = false;
 	}
 }
+
+function OnCollisionExit (collision: Collision) {
+	if (collision.gameObject.name == "Ground"){
+		jump = true;
+	}
+}
