@@ -10,12 +10,12 @@ function Start () {
 
 function Update () {
 	var x : float = Input.GetAxis("Horizontal");
+	var z : float = Input.GetAxis("Vertical");
 	if(!jump && Input.GetButtonDown("Jump")){
 		jump = true;
 		rb.velocity.y += JumpInitialVelocity;
-		rb.velocity = Vector3(0, 10, 0);
+		rb.velocity = Vector3(x * 0.15 * (Time.deltaTime * 30), 10, z * 0.15 *  (Time.deltaTime * 30));
 	};
-	var z : float = Input.GetAxis("Vertical");
 	transform.Translate(Vector3(x * 0.15, 0, z * 0.15), Space.World);
 }
 
