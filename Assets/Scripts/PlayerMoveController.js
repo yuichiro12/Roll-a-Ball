@@ -14,7 +14,6 @@ function Start () {
 function Update () {
 	var x : float = Input.GetAxis("Horizontal");
 	var z : float = Input.GetAxis("Vertical");
-	transform.Rotate(Vector3(z * 10, 0, x * -10), Space.World);
 
 	if (!jump && jumpable && Input.GetButtonDown("Jump")) {
 		dx = x;
@@ -26,12 +25,13 @@ function Update () {
 
 	if (jump) {
 		transform.Translate(Vector3((x/1.5 + dx)/2 * 0.15, 0, (z/1.5 + dz)/2 * 0.15), Space.World);
-		transform.Rotate(Vector3((z/6 + dz)/2 * 10, 0, (x/6 + dx)/2 * -10), Space.World);
+		transform.Rotate(Vector3((z/2 + dz)/2 * 10, 0, (x/2 + dx)/2 * -10), Space.World);
 	} else if (bound != 0) {
 		transform.Translate(Vector3((x/1.2 + dx/1.5)/2 * 0.15, 0, (z/1.2 + dz/1.5)/2 * 0.15), Space.World);
-		transform.Rotate(Vector3((z/6 + dz/bound)/2 * 10, 0, (x/6 + dx/bound)/2 * -10), Space.World);
+		transform.Rotate(Vector3((z/1.5 + dz/bound)/2 * 10, 0, (x/1.5 + dx/bound)/2 * -10), Space.World);
 	} else {
 		transform.Translate(Vector3(x * 0.15, 0, z * 0.15), Space.World);
+		transform.Rotate(Vector3(z * 10, 0, x * -10), Space.World);
 	}
 }
 
