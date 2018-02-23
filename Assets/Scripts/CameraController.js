@@ -1,4 +1,4 @@
-﻿#pragma strict
+#pragma strict
 
 var player : GameObject;
 var offset : Vector3;
